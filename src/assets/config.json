@@ -1,0 +1,12 @@
+{
+    
+    "surveyInfo": {
+        "surveyName": "My Survey",
+        "surveyIntroduction": "Hola! Un grupo de estudio de la Universidad de Flores está llevando a cabo una breve encuesta acerca de nuevas tecnologías y los sentidos que estas adquieren en la sociedad. Esta encuesta está destinada a <strong>estudiantes o graduados recientes de terciarios y universidades, de cualquier carrera y nivel de Argentina</strong>. Responderla lleva menos de 3 minutos y lo podés hacer tanto desde tu celular como desde una computadora. Las respuestas son anónimas y los resultados serán utilizados exclusívamente para fines académicos."
+    },
+    "evocations": {
+        "inputs": 5
+    }
+
+}
+  
