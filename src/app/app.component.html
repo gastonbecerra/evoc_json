@@ -21,20 +21,32 @@
         <ng-template matStepLabel>Step 2</ng-template>
         <section>
           <h2>Test de evocación</h2>
-          tenemos {{ inputs }} inputs
+          
+          tenemos un minimo de {{ minimal_inputs }} inputs
 
-          <div *ngFor="let index of inputsArray">
-            <mat-form-field appearance="outline">
+          <div *ngFor="let index of inputsArray; let i = index;">
+            <label>Palabra {{i+1}}</label>: &nbsp;
+            <mat-form-field appearance="outline">              
               <mat-label>xxx</mat-label>
               <!-- <input matInput placeholder="Enter xxx" [(ngModel)]="xx"> -->
+              <input matInput placeholder="Palabra {{i+1}}" formControlName="palabra" minlength="2" maxlength="50" >
             </mat-form-field>
+            
+            <div class="superSlider">
+              Negativo 
+            <mat-slider min="1" max="5" step="0.5" value="1.5">
+              <input matSliderThumb>
+            </mat-slider>
+            Positivo
+            </div>    
+
           </div>
           <div>
             <h4>Agregar otra palabra</h4>
-            <button  (click)="addExtraInput()">
+            <button  (click)="addExtraInput()"> 
               <!-- mat-icon-button -->
               <!-- <mat-icon>add</mat-icon> -->
-              x
+              agregar
             </button>
           </div>
 
@@ -44,6 +56,68 @@
           <button mat-button matStepperNext>Next</button>
         </div>        
       </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Step 3</ng-template>
+        <section>
+          <h2>Sociodemográficas</h2>
+          
+          <!-- <div *ngFor="let index of sociodemograficos; let i = index;"> -->
+            <!-- <label>Sociodemografico {{i+1}} {{sociodemograficos.indexOf(i+1).pregunta}} </label>: &nbsp; -->
+            <!-- <mat-form-field appearance="outline">              
+              <mat-label>xxx</mat-label>
+              <input matInput placeholder="Palabra {{i+1}}" formControlName="palabra" minlength="2" maxlength="50" >
+            </mat-form-field> -->
+          <!-- </div> -->
+
+          <div *ngFor="let sociodemo of sociodemograficos; let i = index">
+            
+            <h4>
+              {{sociodemo.pregunta}}
+            </h4>
+            <mat-form-field appearance="outline">
+                            
+              <mat-label>{{ sociodemo.variable }}</mat-label>
+              <ng-container> 
+                <input matInput type="number" 
+                  *ngIf="sociodemo.tipo == 'numerico'" />
+                <mat-select 
+                  *ngIf="sociodemo.tipo == 'multiple'">
+                  <mat-option *ngFor="let opcion of sociodemo.opciones" [value]="opcion">
+                    {{ opcion }}
+                  </mat-option>
+                </mat-select>
+                <textarea matInput rows="5" 
+                  *ngIf="sociodemo.tipo =='texto'">
+                </textarea>
+                
+                <!-- <input matInput type="number" *ngIf="sociodemo.tipo != 'numerico'" /> -->
+
+              </ng-container> 
+
+
+              <!-- <ng-container *ngIf="sociodemo.tipo == 'numerico'" > -->
+                <!-- <input matInput type="number" /> -->
+              <!-- </ng-container> -->
+              
+              <!-- <ng-container [ngSwitch]="sociodemo.tipo"> -->
+                <!-- <input *ngSwitchCase="'numerico'" matInput type="number" [(ngModel)]="sociodemografico.respuesta">
+              <!-- </ng-container> -->
+
+            </mat-form-field>
+
+
+          </div>
+
+
+        </section>
+        <div>
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>        
+      </mat-step>
+
+
     </mat-stepper>
 
   </section>

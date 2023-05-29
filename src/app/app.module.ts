@@ -6,6 +6,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSlider } from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSelectModule } from '@angular/material/select';
+import { MatSelect } from '@angular/material/select';
 
 
 import { AppComponent } from './app.component';
@@ -20,9 +25,12 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatStepperModule,
+    MatButtonModule,
+    MatSliderModule,
+    MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
-  ],
+    MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
